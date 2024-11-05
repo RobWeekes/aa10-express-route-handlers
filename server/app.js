@@ -25,6 +25,13 @@ const express = require('express');
 const app = express();
 
 // Your code here 
+app.use(express.json());
+
+// optional middleware - log of json request body
+app.use((req, res) => {
+  console.log('Request Body:', req.body);
+  next();
+})
 
 // DO NOT MODIFY
 if (require.main === module) {
